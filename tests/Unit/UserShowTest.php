@@ -21,7 +21,6 @@ class UserShowTest extends TestCase
 
         $response = $this->get("/users/{$user->id}");
 
-        // $response->dump();
         $response->assertStatus(200);
     }
 }
