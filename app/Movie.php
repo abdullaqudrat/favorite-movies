@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+// Adds global scope to sort release date from most recent
+use App\Scopes\ReleaseDateScope;
 
 class Movie extends Model
 {
@@ -27,5 +29,14 @@ class Movie extends Model
     public function years_ago()
     {
         return date('Y', strtotime(now()))-date('Y', strtotime($this->release_date));
+    }
+
+
+    // Adds global scope to sort release date from most recent
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope(new ReleaseDateScope);
     }
 }

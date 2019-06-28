@@ -16,6 +16,7 @@ class UsersController extends Controller
     public function show($id)
     {
         $user = User::find($id);
+        // Adds global scope to sort release date from most recent
         $movies = $user->movies;
         return view('users.show', compact('user', 'movies'));
     }

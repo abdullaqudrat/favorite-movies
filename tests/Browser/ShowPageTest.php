@@ -5,7 +5,6 @@ namespace Tests\Browser;
 use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-
 use App\User;
 use App\Movie;
 
@@ -31,7 +30,7 @@ class UserShowPageTest extends DuskTestCase
             $movie_5->id,
         ]);
 
-        $this->browse(function ($browser) use ($user, $movie_1, $movie_2, $movie_3, $movie_4, $movie_5) {
+        $this->browse(function (Browser $browser) use ($user, $movie_1, $movie_2, $movie_3, $movie_4, $movie_5) {
             $browser->visit("/users/{$user->id}")
             ->assertSee($user->name)
             ->assertSee($movie_1->title)
