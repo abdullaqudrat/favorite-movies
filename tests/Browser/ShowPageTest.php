@@ -18,10 +18,13 @@ class UserShowPageTest extends DuskTestCase
     public function testUserCanSeeMovieListPageTest()
     {
         $user = factory(User::class)->create();
+        $movie_1 = factory(Movie::class)->create;
 
-        $this->browse(function (Browser $browser) use ($user) {
+
+        $this->browse(function (Browser $browser) use ($user, $movie_1) {
             $browser->visit("/users/{$user->id}")
-                ->assertSee($user->name);
+                ->assertSee($user->name)
+                ->assertSee($movie_1->title);
         });
     }
 }
