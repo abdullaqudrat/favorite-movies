@@ -48,7 +48,12 @@ class UserShowPageTest extends DuskTestCase
             ->assertSee("{$movie_4->years_ago()} years ago")
             ->assertSee($movie_5->title)
             ->assertSee("Released in: " . date('Y', strtotime($movie_5->release_date)))
-            ->assertSee("{$movie_5->years_ago()} years ago");
+            ->assertSee("{$movie_5->years_ago()} years ago")
+            ->assertValue(".movie-title-1", $movie_3->id)
+            ->assertValue(".movie-title-2", $movie_5->id)
+            ->assertValue(".movie-title-3", $movie_1->id)
+            ->assertValue(".movie-title-4", $movie_2->id)
+            ->assertValue(".movie-title-5", $movie_4->id);
         });
     }
 }
