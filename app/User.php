@@ -11,6 +11,14 @@ class User extends Authenticatable
     use Notifiable;
 
     /**
+     * Users have many through MovieUser.
+     */
+    public function movies()
+    {
+        return $this->belongsToMany(Movie::class, 'movie_user');
+    }
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
