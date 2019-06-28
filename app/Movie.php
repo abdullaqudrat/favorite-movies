@@ -23,4 +23,9 @@ class Movie extends Model
     protected $fillable = [
         'title', 'release_date',
     ];
+
+    public function years_ago()
+    {
+        return date('Y', strtotime(now()))-date('Y', strtotime($this->release_date));
+    }
 }
