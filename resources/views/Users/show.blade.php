@@ -3,20 +3,21 @@
     @extends('layouts.app')
 
     @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Dashboard</div>
     
-                    <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
     
-                        @if (Auth::user()->name == $user->name)
+    @if (Auth::user() && Auth::user()->name == $user->name)
+        <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">Dashboard</div>
+            
+                            <div class="card-body">
+                                @if (session('status'))
+                                    <div class="alert alert-success" role="alert">
+                                        {{ session('status') }}
+                                    </div>
+                                @endif
                             <h1>{{ $user->name }}</h1>
 
                             <h3>Your top 5 favorite movies</h3>
@@ -30,11 +31,21 @@
                                     </ul>
                                 @endforeach
                             </div>
-                        @endif
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    @else
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">Not Available</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
     @endsection
 
