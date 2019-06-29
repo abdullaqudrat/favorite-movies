@@ -23,7 +23,11 @@ class Movie extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'release_date',
+        'title', 'release_date', 
+    ];
+
+    protected $hidden = [
+        'pivot', 'created_at', 'updated_at',
     ];
 
     public function years_ago()
