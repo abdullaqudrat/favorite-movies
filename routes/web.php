@@ -16,3 +16,6 @@ Route::get('/', function () {
 });
 
 Route::resource('users', 'UsersController') ->only(['show']);
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
