@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\User;
 
-class UserShowTest extends TestCase
+class UserControllerShowTest extends TestCase
 {
     use RefreshDatabase;
     /**
