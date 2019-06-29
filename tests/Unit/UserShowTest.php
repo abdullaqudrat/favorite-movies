@@ -19,7 +19,7 @@ class UserShowTest extends TestCase
     {
         $user = factory(User::class)->create();
 
-        $response = $this->get("/users/{$user->id}");
+        $response = $this->actingAs($user)->get("/users/{$user->id}");
 
         $response->assertStatus(200);
     }

@@ -31,7 +31,7 @@ class UserShowPageTest extends DuskTestCase
         ]);
 
         $this->browse(function (Browser $browser) use ($user, $movie_1, $movie_2, $movie_3, $movie_4, $movie_5) {
-            $browser->visit("/users/{$user->id}")
+            $browser->loginAs($user)->visit("/users/{$user->id}")
             ->assertSee($user->name)
             ->assertSee($movie_1->title)
             ->assertSee("Released in: " . date('Y', strtotime($movie_1->release_date)))
