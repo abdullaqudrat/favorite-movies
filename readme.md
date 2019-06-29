@@ -1,6 +1,6 @@
 # Favorite Movies
 
-> Favorite Movies is an app built in Laravel using php. It consists of authenticating a user with their email and password to view dynamic details of their top 5 favorite movies. It also has an api endpoint, with built in middleware, and can be accessed thru basic authentication with a platform such as Postman. The app also uses global scoping to sort favorite movies by newest first.
+> Favorite Movies is an app built in Laravel using php. It consists of authenticating a user with their email and password, using laravel's auth scaffolding, to view dynamic details of their top 5 favorite movies. It also has an api endpoint, with built in middleware, and can be accessed thru basic authentication with a platform such as Postman. The app also uses global scoping to sort favorite movies by newest first.
 
 ## Dependencies
 
