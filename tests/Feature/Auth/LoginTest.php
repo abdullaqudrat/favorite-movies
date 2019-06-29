@@ -9,7 +9,7 @@ use App\User;
 
 class LoginTest extends TestCase
 {
-    // use RefreshDatabase;
+    use RefreshDatabase;
 
     public function test_user_can_view_a_login_form()
     {
