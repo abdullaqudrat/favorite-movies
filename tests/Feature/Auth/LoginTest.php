@@ -35,4 +35,21 @@ class LoginTest extends TestCase
         $response->assertRedirect("/users/{$user->id}");
         $this->assertAuthenticatedAs($user);
     }
+    public function test_user_cannot_login_with_incorrect_password()
+    {
+        $user = factory(User::class)->create([
+            'password' => bcrypt('password'),
+        ]);
+        
+        $response = $this->from('/login')->post('/login', [
+            'email' => $user->email,
+            'password' => 'invalid-password',
+        ]);
+        
+        $response->assertRedirect('/login');
+        $response->assertSessionHasErrors('email');
+        $this->assertTrue(session()->hasOldInput('email'));
+        $this->assertFalse(session()->hasOldInput('password'));
+        $this->assertGuest();
+    }
 }
